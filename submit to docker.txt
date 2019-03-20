@@ -1,0 +1,18 @@
+docker cli:
+
+docker build -t isilospythonmlapi:latest .
+
+docker tag isilospythonmlapi danilec/isilospythonmlapi:latest
+
+docker push danilec/isilospythonmlapi:latest
+
+from docker hub to cloud foundry:
+
+normal cmd:
+
+cf push isilospythonmlapidocker --docker-image danilec/isilospythonmlapi:latest
+
+
+for local tests:
+
+docker run -d -p 8080:8080 <imagename>

@@ -1,0 +1,5 @@
+applications:
+  - name: iSilosPythonMLAPI
+    buildpack: python_buildpack
+    memory: 512MB
+    disk_quota: 1024M
