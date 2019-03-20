@@ -3,10 +3,11 @@ from flask import jsonify
 
 def getWebResponse(payload):
     observations = payload['observations']
+    epsilon = payload['epsilon']
     return jsonify(
             status=200,
             payload=payload,
-            result=run(observations)
+            result=run(observations, epsilon)
         )
 
 def run(observations):
@@ -20,10 +21,13 @@ def run(observations):
         tf.import_graph_def(graph_def, name='')
         graph = tf.get_default_graph()
 
+        #x = graph.get_tensor_by_name('vector_observation:0')
+        #y = graph.get_tensor_by_name('value_estimate:0')
         x = graph.get_tensor_by_name('vector_observation:0')
-        y = graph.get_tensor_by_name('value_estimate:0')
+        e = graph.get_tensor_by_name('epsilon:0')
+        y = graph.get_tensor_by_name('action:0')
 
-        result = str(sess.run(y, feed_dict={x: [observations]})[0][0])
+        result = str(sess.run(y, feed_dict={x: [observations],e: [epsilon]})[0][0])
         return result
 
 
