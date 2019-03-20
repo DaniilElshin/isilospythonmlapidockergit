@@ -10,7 +10,7 @@ def getWebResponse(payload):
             result=run(observations, epsilon)
         )
 
-def run(observations):
+def run(observations, epsilon):
     tf.reset_default_graph()
 
     with tf.Session() as sess:
