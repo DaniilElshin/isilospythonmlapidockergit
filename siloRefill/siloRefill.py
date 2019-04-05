@@ -8,7 +8,7 @@ def getWebResponse(payload, request):
             status=200,
             payload=payload,
             result=run(observations, epsilon),
-            request=str(request)
+            request=str(vars(request))
         )
 
 def run(observations, epsilon):

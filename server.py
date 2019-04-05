@@ -18,7 +18,7 @@ def root():
                 status=200,
                 response={
                     'message': 'GET successfull',
-                    'request': str(request)
+                    'request_vars' : str(vars(request))
                 }
             )
 
