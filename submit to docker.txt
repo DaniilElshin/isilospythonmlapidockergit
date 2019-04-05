@@ -10,7 +10,7 @@ from docker hub to cloud foundry:
 
 normal cmd:
 
-cf push isilospythonmlapidocker --docker-image danilec/isilospythonmlapi:latest
+cf push isilospythonmlapidocker --docker-image danilec/isilospythonmlapidockergit:latest
 
 
 for local tests:
