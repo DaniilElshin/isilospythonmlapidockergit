@@ -17,13 +17,14 @@ def root():
         return jsonify(
                 status=200,
                 response={
-                    'message': 'GET successfull'
+                    'message': 'GET successfull',
+                    'request': str(request)
                 }
             )
 
 def process_request(request, clientApiMethod):
     request_payload = json.loads(request.get_data().decode('utf-8'))
-    return clientApiMethod(request_payload)
+    return clientApiMethod(request_payload, request)
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=port)

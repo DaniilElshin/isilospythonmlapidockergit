@@ -1,13 +1,14 @@
 import tensorflow as tf
 from flask import jsonify
 
-def getWebResponse(payload):
+def getWebResponse(payload, request):
     observations = payload['observations']
     epsilon = payload['epsilon']
     return jsonify(
             status=200,
             payload=payload,
-            result=run(observations, epsilon)
+            result=run(observations, epsilon),
+            request=str(request)
         )
 
 def run(observations, epsilon):
